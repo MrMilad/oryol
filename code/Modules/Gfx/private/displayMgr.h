@@ -28,11 +28,20 @@ namespace _priv {
 class displayMgr : public eglDisplayMgr { };
 } }
 #elif (ORYOL_WINDOWS || ORYOL_MACOS || ORYOL_LINUX)
+#if (ORYOL_QT_EDITOR)
+#include "Gfx/private/qt/qtDisplayMgr.h"
+namespace Oryol {
+	namespace _priv {
+		class displayMgr : public qtDisplayMgr {};
+	}
+}
+#else
 #include "Gfx/private/glfw/glfwDisplayMgr.h"
 namespace Oryol {
 namespace _priv {
 class displayMgr : public glfwDisplayMgr { };
 } }
+#endif
 #elif ORYOL_EMSCRIPTEN
 #include "Gfx/private/emsc/emscDisplayMgr.h"
 namespace Oryol {

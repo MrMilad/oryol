@@ -39,6 +39,9 @@ public:
     void Present();
     /// check whether the window system requests to quit the application
     bool QuitRequested() const;
+
+	/// bind the default frame buffer
+	void glBindDefaultFramebuffer();
     
     /// get actual display attributes (can be different from DisplaySetup)
     const DisplayAttrs& GetDisplayAttrs() const;

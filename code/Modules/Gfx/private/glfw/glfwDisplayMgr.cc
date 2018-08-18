@@ -62,7 +62,9 @@ glfwDisplayMgr::SetupDisplay(const GfxSetup& setup, const gfxPointers& ptrs) {
 
     // setup extensions and platform-dependent constants
     ORYOL_GL_CHECK_ERROR();
-    flextInit(glfwWindow);
+#ifndef ORYOL_QT_EDITOR
+	flextInit(glfwWindow);
+#endif // !ORYOL_QT_EDITOR
     ORYOL_GL_CHECK_ERROR();
     glCaps::Setup(glCaps::GL_3_3_CORE);
     #if ORYOL_DEBUG

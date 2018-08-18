@@ -91,6 +91,9 @@ displayMgrBase::QuitRequested() const {
 }
 
 //------------------------------------------------------------------------------
+void displayMgrBase::glBindDefaultFramebuffer() {}
+
+//------------------------------------------------------------------------------
 const DisplayAttrs&
 displayMgrBase::GetDisplayAttrs() const {
     return this->displayAttrs;

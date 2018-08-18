@@ -105,10 +105,21 @@ fips_begin_module(Gfx)
             fips_files(eglDisplayMgr.cc eglDisplayMgr.h)
             fips_libs(GLESv2 EGL bcm_host)
         elseif (FIPS_MACOS OR FIPS_WINDOWS OR FIPS_LINUX)
+
             fips_dir(private/glfw)
             fips_files(glfwDisplayMgr.cc glfwDisplayMgr.h)
-            fips_dir(private/flextgl)
+
+# un-coment lines for game only project
+            #fips_dir(private/flextgl)
+            #fips_files(flextGL.c flextGL.h)
+
+# un-comment lines for Qt editor
+            fips_dir(private/flextgl/compat)
             fips_files(flextGL.c flextGL.h)
+            fips_dir(private/qt)
+            fips_files(qtDisplayMgr.cc qtDisplayMgr.h)
+	    add_definitions(-DORYOL_QT_EDITOR)
+
             fips_deps(glfw3)
         endif()
         if (FIPS_IOS)
